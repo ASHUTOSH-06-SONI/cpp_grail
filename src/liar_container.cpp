@@ -22,7 +22,14 @@ int main() {
     auto n= nums[0] basically sees what dt is nums[0] 
     (coz nums[0] ka return type is int& ) and then init's n to that datatype
     so when we do n=42, only n ka value changes
-
-    
+    in case of bool, vector returns a PROXY
+    how proxy works is basically- "I'm not the bool itself, but I know where the bool lives, and I know how to mess with it."
+    so auto behaves differently here, coz auto f = flags[0] IS NOT the same as bool f = flags[0]
+    instead it works like- auto f = flags[0] --> vector<bool>::reference f = flags[0];
+    so use bool f = flags[0] to get a genuine copy 
     */
+   // fixed-
+   bool x = flags[0];
+   x = true;
+   std::cout<<"Fixed: "<<x<<std::endl;
 }
